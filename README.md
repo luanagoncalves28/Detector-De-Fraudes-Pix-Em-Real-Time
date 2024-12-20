@@ -1,61 +1,48 @@
-# DetectorDeFraudesPixEmTempoReal
+# Detector de Fraudes em Tempo Real para Transações Pix
 
-Este repositório contém um projeto completo de pipeline de Machine Learning desenvolvido para detectar fraudes em tempo real nas transações do Pix, o sistema de pagamentos instantâneos do Banco Central do Brasil. O objetivo é criar uma solução robusta e escalável que utilize técnicas avançadas de Engenharia de Dados e Machine Learning para identificar e prevenir atividades fraudulentas, garantindo a segurança e a integridade do sistema Pix.
+Bem-vindo ao meu projeto de detecção de fraudes em tempo real para o Pix, o sistema de pagamentos instantâneos do Banco Central do Brasil. Como engenheira de machine learning, desenvolvi este projeto para demonstrar minhas habilidades em construir pipelines de ML robustos, escaláveis e em conformidade com as melhores práticas de MLOps e DevOps.
 
-## Arquitetura do Sistema
+## Visão Geral do Projeto
 
-O pipeline é construído na plataforma Databricks, aproveitando o Apache Spark para processamento distribuído e o Apache Kafka para absorção de dados em tempo real. Os componentes principais incluem:
+Este projeto implementa um sistema de ponta a ponta para detectar transações fraudulentas do Pix em tempo real. Ele combina técnicas avançadas de engenharia de dados e machine learning para analisar grandes volumes de dados de transações, identificar padrões suspeitos e sinalizar potenciais fraudes em questão de segundos.
 
-- Databricks para um ambiente unificado de processamento e análise de dados
-- Apache Spark para processamento distribuído de dados
-- Delta Lake para armazenamento confiável de dados
-- MLflow para gerenciamento do ciclo de vida do modelo de machine learning
-- Prometheus e Grafana para monitoramento e visualização
+## Destaques do Projeto
 
-Para mais detalhes, consulte a documentação de arquitetura em docs/arquitetura.md.
+- Arquitetura de microserviços altamente escalável e resiliente
+- Ingestão de dados em tempo real usando Apache Kafka e Spark Structured Streaming
+- Processamento de dados distribuído com Apache Spark e Delta Lake
+- Treinamento e implantação de modelos de ML usando Databricks e MLflow
+- Monitoramento abrangente da infraestrutura, do pipeline e do modelo com Prometheus e Grafana
+- Implantação e gerenciamento de contêineres com Google Kubernetes Engine (GKE)
+- Práticas de CI/CD implementadas usando GitHub Actions
 
-## Configuração do Ambiente
+## Por que esta arquitetura?
 
-Para configurar o ambiente de desenvolvimento, você precisa:
+A arquitetura deste projeto foi cuidadosamente projetada para lidar com os desafios únicos da detecção de fraudes em tempo real em um sistema de pagamentos de alto volume como o Pix. Alguns dos principais fatores que influenciaram minhas escolhas de arquitetura incluem:
 
-1. Uma conta no Databricks (Azure Databricks, Databricks on AWS, ou Databricks Community Edition)
-2. Um cluster Kafka externo (auto-hospedado ou um serviço gerenciado como Confluent Cloud ou Amazon MSK)
-3. Docker para executar Prometheus e Grafana localmente
+- Escalabilidade: A capacidade de lidar com grandes picos de tráfego e escalar horizontalmente conforme necessário.
+- Resiliência: Garantir que o sistema permaneça operacional e preserve a integridade dos dados mesmo em caso de falhas de componentes.
+- Latência: Minimizar o tempo entre uma transação ocorrer e uma potencial fraude ser detectada e sinalizada.
+- Manutenibilidade: Facilitar a depuração, o teste e a implantação de atualizações no sistema.
 
-As dependências do Python serão gerenciadas dentro do seu ambiente Databricks. Para instruções sobre como configurar cada componente, consulte a documentação em docs/.
+Escolhi tecnologias como Kafka, Spark e Kubernetes especificamente por sua capacidade comprovada de lidar com esses requisitos em sistemas de produção de grande escala.
 
-## Executando o Pipeline
+## Navegando pelo Repositório
 
-O pipeline pode ser executado no Databricks para processamento de dados em grande escala.
-
-1. Crie um cluster Databricks e anexe este repositório a ele.
-2. Inicie os serviços Prometheus e Grafana usando Docker Compose:
-```bash
-docker-compose up -d
-```
-3. Execute o notebook de ingestão de dados `ingestao/notebook_ingestao.py` para começar a inserir dados do seu cluster Kafka.
-4. Execute o notebook de processamento `processamento/notebook_processamento.py` para processar os dados usando Spark.
-5. Treine e implante o modelo de machine learning executando o notebook `machine_learning/notebook_modelo.py`.
-
-Para mais detalhes sobre implantação e monitoramento, consulte a documentação em docs/uso_operacional.md.
-
-## Estrutura do Repositório
-
-* `docs/`: Documentação do projeto, incluindo arquitetura, padrões de projeto e guias operacionais.
-* `ingestao/`: Notebook e configurações para ingestão de dados usando Kafka.
-* `processamento/`: Notebook para processamento de dados usando Spark e Delta Lake.
-* `machine_learning/`: Notebook para treinamento e implantação de modelos usando MLflow.
-* `monitoramento/`: Configurações para monitoramento usando Prometheus e Grafana.
-* `testes/`: Testes unitários e de integração.
-
-## Contribuindo
-
-Contribuições são bem-vindas! Por favor, abra uma questão para discutir mudanças importantes antes de submeter uma solicitação pull. Certifique-se de atualizar os testes em conformidade com a proteção.
+- `docs/`: Documentação detalhada sobre a arquitetura, os padrões de projeto e os ciclos de vida de MLOps e DevOps.
+- `infraestrutura/`: Configurações de infraestrutura como código (IaC) usando Terraform e Kubernetes.
+- `dados/`: Scripts e notebooks para ingestão, processamento e armazenamento de dados.
+- `modelos/`: Notebooks e scripts para treinamento, avaliação e implantação de modelos de ML.
+- `monitoramento/`: Configurações para monitoramento da infraestrutura, do pipeline e do modelo usando Prometheus e Grafana.
+- `testes/`: Testes unitários e de integração para os componentes do sistema.
+- `ci_cd/`: Configurações e workflows para integração contínua e implantação contínua (CI/CD) usando GitHub Actions.
 
 ## Licença
 
 Este projeto está licenciado sob a MIT License - veja o arquivo `LICENSE` para detalhes.
 
-## Contato
+## Entre em Contato
 
-Em caso de qualquer questão ou preocupação, por favor abra uma edição neste repositório ou entre em contato com o mantenedor do projeto em lugonc.lga@gmail.com.
+Se você tiver alguma dúvida sobre este projeto ou quiser discutir oportunidades de trabalhar juntos, sinta-se à vontade para me contatar em luana.engenheirademl@gmail.com.
+
+Estou sempre feliz em conversar sobre engenharia de machine learning, MLOps e como podemos usar dados para criar sistemas mais inteligentes e confiáveis. Espero que este projeto tenha lhe dado uma boa visão das minhas habilidades e paixão nesta área!

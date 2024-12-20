@@ -43,6 +43,24 @@ Este projeto está licenciado sob a MIT License - veja o arquivo `LICENSE` para 
 
 ## Entre em Contato
 
-Se você tiver alguma dúvida sobre este projeto ou quiser discutir oportunidades de trabalhar juntos, sinta-se à vontade para me contatar em luana.engenheirademl@gmail.com.
+Se você tiver alguma dúvida sobre este projeto ou quiser discutir oportunidades de trabalhar juntos, sinta-se à vontade para me contatar em lugonc.lga@gmail.com.
 
 Estou sempre feliz em conversar sobre engenharia de machine learning, MLOps e como podemos usar dados para criar sistemas mais inteligentes e confiáveis. Espero que este projeto tenha lhe dado uma boa visão das minhas habilidades e paixão nesta área!
+
+## Para Recrutadores Técnicos
+
+Se você é um recrutador técnico ou um profissional de engenharia de machine learning revisando este projeto, sinta-se à vontade para explorar o código diretamente aqui no GitHub. Este repositório foi estruturado para facilitar a navegação e o entendimento da arquitetura do projeto, da qualidade do código, das convenções de nomenclatura e da documentação.
+
+Algumas áreas de interesse particular podem incluir:
+
+- A estrutura geral do projeto e a organização dos diretórios
+- A qualidade e a clareza do código em si
+- O uso de padrões de design e melhores práticas
+- A abrangência e a qualidade da documentação
+- A implementação de testes unitários e de integração
+
+Espero que ao revisar este código, você possa ter um vislumbre das minhas habilidades e conhecimentos como Engenheira de Machine Learning. Se você tiver alguma dúvida ou quiser discutir qualquer aspecto do projeto em mais detalhes, não hesite em me contatar.
+
+Além de revisar o código, também convido você a assistir aos vídeos que documentam o processo de desenvolvimento deste projeto. Estes vídeos estarão disponíveis no meu site de portfólio, no meu artigo no Medium e nas minhas postagens no LinkedIn. Eles fornecerão insights adicionais sobre meu processo de pensamento, minhas habilidades de resolução de problemas e minha abordagem geral para engenharia de machine learning.
+
+Obrigada por dedicar seu tempo para revisar este projeto. Espero ter a oportunidade de discutir mais detalhadamente como minhas habilidades e experiência podem ser benéficas para sua equipe.

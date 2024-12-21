@@ -1,89 +1,150 @@
 # Infraestrutura como Código - Detector de Fraudes Pix
 
-Bem-vindo à documentação da infraestrutura do projeto "Detector de Fraudes Pix em Tempo Real". Este diretório contém todos os recursos que desenvolvi para provisionar e gerenciar a infraestrutura do sistema de forma automatizada e segura, garantindo total conformidade com os requisitos da Resolução BCB n° 403/2024.
+## Contextualização
 
-## Visão Geral da Infraestrutura
+Este diretório contém a infraestrutura completa que desenvolvi para suportar o sistema de detecção de fraudes em transações Pix. Em um sistema que precisa processar até 1 milhão de transações por segundo e detectar fraudes em tempo quase real, a infraestrutura é um componente crítico que determina o sucesso do projeto. Aqui você encontrará todo o código de infraestrutura como código (IaC) e configurações necessárias para garantir a conformidade com a Resolução BCB n° 403/2024.
 
-Projetei esta infraestrutura para atender aos rigorosos requisitos de segurança, escalabilidade e resiliência estabelecidos pelo Banco Central do Brasil. Optei por uma abordagem de infraestrutura como código (IaC) com Terraform e configurações Kubernetes, garantindo um provisionamento consistente e reprodutível em todos os ambientes.
+## Importância da Infraestrutura no Projeto
 
-### Componentes Principais
+A infraestrutura deste projeto foi projetada para atender três requisitos críticos:
 
-1. **Google Kubernetes Engine (GKE)**
-   - Cluster gerenciado para orquestração de contêineres
-   - Configuração de auto-scaling para lidar com picos de transações
-   - Network policies para isolamento de tráfego
-   - Segregação de workloads por namespaces
+1. **Alta Performance**: O sistema precisa analisar transações Pix em tempo quase real, exigindo uma infraestrutura que garanta baixa latência e alto throughput.
 
-2. **Redes e Segurança**
-   - VPC dedicada com subnets segregadas por ambiente
-   - Firewall rules para controle granular de tráfego
-   - Cloud IAM para gerenciamento de identidade e acesso
-   - Cloud KMS para gerenciamento de chaves criptográficas
+2. **Escalabilidade**: Com volumes de transações variando significativamente ao longo do dia, a infraestrutura deve escalar automaticamente para manter a performance sem desperdiçar recursos.
 
-3. **Armazenamento e Dados**
-   - Cloud Storage para armazenamento de dados não estruturados
-   - Managed Disks para volumes persistentes
-   - Sistema de backup automatizado
+3. **Segurança**: Como parte do sistema financeiro, a infraestrutura implementa múltiplas camadas de segurança para proteger dados sensíveis e prevenir acessos não autorizados.
 
-4. **Monitoramento e Observabilidade**
-   - Stack Prometheus/Grafana para métricas
-   - Cloud Logging para centralização de logs
-   - Cloud Monitoring para alertas e dashboards
+## Decisões Técnicas e Arquiteturais
+
+### 1. Google Kubernetes Engine (GKE)
+Escolhi o GKE como plataforma principal por três razões fundamentais:
+- Orquestração robusta de contêineres com auto-scaling granular
+- Integração nativa com serviços de segurança do Google Cloud
+- Facilidade de implementar políticas de isolamento e segurança
+
+Configurações implementadas:
+```yaml
+# Exemplo de configuração de auto-scaling
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: fraud-detection-hpa
+spec:
+  minReplicas: 3
+  maxReplicas: 100
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+```
+
+### 2. Redes e Segurança
+Arquitetei a infraestrutura de rede seguindo o princípio de defesa em profundidade:
+
+- VPC dedicada com subnets segregadas:
+  - Subnet para serviços públicos (APIs)
+  - Subnet privada para processamento
+  - Subnet isolada para dados sensíveis
+
+- Implementação de segurança em camadas:
+  ```hcl
+  # Exemplo de configuração Terraform para segurança em camadas
+  resource "google_compute_firewall" "internal" {
+    name    = "internal-traffic"
+    network = google_compute_network.vpc.name
+    
+    allow {
+      protocol = "tcp"
+      ports    = ["8080", "9090"]
+    }
+    
+    source_ranges = ["10.0.0.0/8"]
+    target_tags   = ["internal"]
+  }
+  ```
+
+### 3. Sistema de Monitoramento
+Implementei uma stack de monitoramento completa para garantir visibilidade total do sistema:
+
+- Prometheus: Coleta de métricas em tempo real
+- Grafana: Dashboards customizados para diferentes perfis
+- AlertManager: Sistema de alertas inteligentes
 
 ## Estrutura do Diretório
 
 ```
 infraestrutura/
-├── terraform/              # Código IaC para provisionamento
+├── terraform/              # IaC para provisionamento
 │   ├── main.tf            # Configurações principais
 │   ├── variables.tf       # Variáveis do projeto
 │   └── outputs.tf         # Outputs do provisionamento
-├── kubernetes/            # Manifestos Kubernetes
-│   ├── namespaces/       # Definições de namespaces
-│   ├── deployments/      # Configurações de deployments
+├── kubernetes/            # Configurações Kubernetes
+│   ├── namespaces/       # Definição de ambientes
+│   ├── deployments/      # Configurações de apps
 │   └── services/         # Definições de serviços
-└── gke/                  # Configurações específicas do GKE
+└── gke/                  # Configs específicas GKE
     ├── cluster.yaml      # Configuração do cluster
     └── policies/         # Políticas de segurança
 ```
 
 ## Para Recrutadores e Revisores de Código
 
-Se você é um recrutador técnico, engenheiro sênior ou especialista em machine learning revisando este projeto, esta seção destaca os principais aspectos da infraestrutura para avaliação:
+Esta seção foi estruturada para facilitar a avaliação técnica do projeto, destacando aspectos específicos que demonstram minhas habilidades em infraestrutura, segurança e conformidade regulatória.
 
-### 1. Arquitetura e Design
-- Implementação de arquitetura em camadas com clara separação de responsabilidades
-- Uso de microserviços para garantir escalabilidade e manutenibilidade
-- Design robusto de redes e segurança alinhado com requisitos regulatórios
+### 1. Estrutura e Organização do Código
+Ao revisar a estrutura, observe:
 
-### 2. Conformidade Regulatória
-- Implementação completa dos requisitos da Resolução BCB n° 403/2024
-- Controles de segurança em múltiplas camadas
-- Tratamento adequado de dados sensíveis
+- Separação clara entre camadas de infraestrutura
+- Modularização do código Terraform
+- Organização hierárquica dos manifestos Kubernetes
+- Consistência nas convenções de nomenclatura
 
-### 3. Infraestrutura como Código
-- Código Terraform limpo e modular
-- Uso de variáveis e módulos para reusabilidade
-- Documentação clara das configurações
-- Práticas de segurança em IaC
+Exemplo de boa modularização:
+```hcl
+# terraform/modules/networking/main.tf
+module "vpc" {
+  source = "./modules/networking"
+  
+  project_id    = var.project_id
+  network_name  = "fraud-detection-vpc"
+  subnet_config = local.subnet_configuration
+}
+```
 
-### 4. Kubernetes e Containerização
-- Configurações otimizadas de cluster
-- Políticas de segurança bem definidas
-- Estratégias eficientes de deployment
-- Configuração adequada de recursos
+### 2. Segurança e Conformidade
+Pontos críticos para avaliação:
 
-### 5. Monitoramento e Observabilidade
-- Métricas abrangentes de sistema
-- Dashboards informativos
-- Sistema robusto de logging
-- Alertas bem configurados
+- Implementação de controles de acesso RBAC
+- Configurações de network policies
+- Gestão de segredos com Google KMS
+- Logs de auditoria e compliance
 
-### 6. Segurança
-- Implementação do princípio do menor privilégio
-- Segregação adequada de ambientes
-- Gestão segura de segredos
-- Proteção de endpoints e comunicações
+### 3. Performance e Escalabilidade
+Aspectos a serem avaliados:
+
+- Configurações de auto-scaling
+- Otimização de recursos
+- Estratégias de cache e performance
+- Gerenciamento de carga
+
+### 4. Monitoramento e Observabilidade
+Verifique a implementação de:
+
+- Métricas de negócio customizadas
+- Dashboards operacionais
+- Sistema de alertas
+- Rastreamento de transações
+
+### 5. Infrastructure as Code
+Analise a qualidade do código IaC:
+
+- Uso de variáveis e locals
+- Modularização efetiva
+- Tratamento de estados
+- Gestão de dependências
 
 ## Contato
 

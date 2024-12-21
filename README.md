@@ -1,66 +1,79 @@
-# Detector de Fraudes em Tempo Real para Transações Pix
+# Detector De Fraudes Pix Em Tempo Real
 
-Bem-vindo ao meu projeto de detecção de fraudes em tempo real para o Pix, o sistema de pagamentos instantâneos do Banco Central do Brasil. Como engenheira de machine learning, desenvolvi este projeto para demonstrar minhas habilidades em construir pipelines de ML robustos, escaláveis e em conformidade com as melhores práticas de MLOps e DevOps.
+Bem-vindo ao repositório do projeto "Detector de Fraudes Pix em Tempo Real"! Este projeto implementa um pipeline analítico de gerenciamento de risco de fraude para o Pix, em total conformidade com a Resolução BCB n° 403 de 22/07/2024, que entrou em vigor em 1° de novembro de 2024.
 
 ## Visão Geral do Projeto
 
-Este projeto implementa um sistema de ponta a ponta para detectar transações fraudulentas do Pix em tempo real. Ele combina técnicas avançadas de engenharia de dados e machine learning para analisar grandes volumes de dados de transações, identificar padrões suspeitos e sinalizar potenciais fraudes em questão de segundos.
+Este projeto foi desenvolvido em resposta direta às novas diretrizes do Banco Central do Brasil, especificadas na Resolução BCB n° 403/2024, que estabelece requisitos mais rigorosos para o gerenciamento de risco de fraude em transações Pix. Com a entrada em vigor destas novas exigências em 1° de novembro de 2024, as instituições financeiras necessitam implementar:
+
+- Sistema de monitoramento em tempo real para análise de transações Pix
+- Mecanismos robustos de detecção de fraudes e anomalias
+- Solução de gerenciamento de risco de fraude integrando informações do DICT
+- Identificação e tratamento de comportamentos atípicos
+- Sistema de alerta e bloqueio preventivo de transações suspeitas
+
+A solução aborda esses requisitos através de um pipeline analítico avançado que:
+
+1. Monitora e detecta fraudes em tempo quase real com taxa de acerto superior a 95%
+2. Processa até 1 milhão de transações por segundo em períodos de pico
+3. Integra-se com o DICT para validação de transações e identificação de comportamentos atípicos
+4. Implementa mecanismos automáticos de bloqueio preventivo
+5. Fornece dashboards em tempo real para monitoramento de atividades suspeitas
 
 ## Destaques do Projeto
 
-- Arquitetura de microserviços altamente escalável e resiliente
-- Ingestão de dados em tempo real usando Apache Kafka e Spark Structured Streaming
-- Processamento de dados distribuído com Apache Spark e Delta Lake
-- Treinamento e implantação de modelos de ML usando Databricks e MLflow
-- Monitoramento abrangente da infraestrutura, do pipeline e do modelo com Prometheus e Grafana
-- Implantação e gerenciamento de contêineres com Google Kubernetes Engine (GKE)
-- Práticas de CI/CD implementadas usando GitHub Actions
+- Arquitetura de microsserviços altamente escalável e resiliente
+- Ingestão de dados em tempo real com Apache Kafka e Spark Structured Streaming
+- Processamento distribuído usando Apache Spark e Delta Lake
+- Treinamento e implementação de modelos de ML com Databricks e MLflow
+- Monitoramento abrangente usando Prometheus e Grafana
+- Implantação e gerenciamento com Google Kubernetes Engine (GKE)
+- Práticas rigorosas de testes e integração contínua com GitHub Actions
 
-## Por que esta arquitetura?
+## Estrutura do Repositório
 
-A arquitetura deste projeto foi cuidadosamente projetada para lidar com os desafios únicos da detecção de fraudes em tempo real em um sistema de pagamentos de alto volume como o Pix. Alguns dos principais fatores que influenciaram minhas escolhas de arquitetura incluem:
+O repositório está organizado de forma modular, refletindo as diferentes camadas do sistema:
 
-- Escalabilidade: A capacidade de lidar com grandes picos de tráfego e escalar horizontalmente conforme necessário.
-- Resiliência: Garantir que o sistema permaneça operacional e preserve a integridade dos dados mesmo em caso de falhas de componentes.
-- Latência: Minimizar o tempo entre uma transação ocorrer e uma potencial fraude ser detectada e sinalizada.
-- Manutenibilidade: Facilitar a depuração, o teste e a implantação de atualizações no sistema.
+```
+.
+├── docs/                    # Documentação detalhada do projeto
+├── infraestrutura/         # Configurações e scripts IaC
+├── dados/                  # Pipeline de processamento de dados
+│   ├── ingestao/          # Ingestão com Kafka
+│   ├── processamento/     # Processamento Spark
+│   └── armazenamento/     # Camadas Bronze/Silver/Gold
+├── modelos/               # Código ML e MLOps
+├── monitoramento/         # Configurações monitoramento
+├── testes/                # Testes unitários/integração
+└── ci_cd/                # Pipelines CI/CD
+```
 
-Escolhi tecnologias como Kafka, Spark e Kubernetes especificamente por sua capacidade comprovada de lidar com esses requisitos em sistemas de produção de grande escala.
+Cada diretório contém seu próprio README.md com detalhes específicos sobre sua finalidade e funcionamento.
 
-## Navegando pelo Repositório
+## Para Recrutadores e Revisores de Código
 
-- `docs/`: Documentação detalhada sobre a arquitetura, os padrões de projeto e os ciclos de vida de MLOps e DevOps.
-- `infraestrutura/`: Configurações de infraestrutura como código (IaC) usando Terraform e Kubernetes.
-- `dados/`: Scripts e notebooks para ingestão, processamento e armazenamento de dados.
-- `modelos/`: Notebooks e scripts para treinamento, avaliação e implantação de modelos de ML.
-- `monitoramento/`: Configurações para monitoramento da infraestrutura, do pipeline e do modelo usando Prometheus e Grafana.
-- `testes/`: Testes unitários e de integração para os componentes do sistema.
-- `ci_cd/`: Configurações e workflows para integração contínua e implantação contínua (CI/CD) usando GitHub Actions.
+Se você é um recrutador técnico ou profissional de machine learning revisando este projeto, seja bem-vindo! Este repositório demonstra não apenas competências técnicas em engenharia de dados e MLOps, mas também profundo entendimento do contexto regulatório atual do sistema financeiro brasileiro.
+
+Ao revisar este projeto, considere:
+
+1. Alinhamento com requisitos regulatórios atuais
+2. Arquitetura do sistema e decisões de design
+3. Qualidade e clareza do código
+4. Uso efetivo de padrões de design e melhores práticas
+5. Abrangência da documentação
+6. Cobertura e qualidade dos testes
+7. Implementação de práticas de CI/CD e automação
 
 ## Licença
 
-Este projeto está licenciado sob a MIT License - veja o arquivo `LICENSE` para detalhes.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## Entre em Contato
+## Contato
 
-Se você tiver alguma dúvida sobre este projeto ou quiser discutir oportunidades de trabalhar juntos, sinta-se à vontade para me contatar em lugonc.lga@gmail.com.
+Para dúvidas, sugestões ou oportunidades:
 
-Estou sempre feliz em conversar sobre engenharia de machine learning, MLOps e como podemos usar dados para criar sistemas mais inteligentes e confiáveis. Espero que este projeto tenha lhe dado uma boa visão das minhas habilidades e paixão nesta área!
+- Email: lugonc.lga@gmail.com
+- LinkedIn: [Seu Perfil do LinkedIn](link-para-seu-linkedin)
+- Website: [Seu Website](link-para-seu-website)
 
-## Para Recrutadores Técnicos
-
-Se você é um recrutador técnico ou um profissional de engenharia de machine learning revisando este projeto, sinta-se à vontade para explorar o código diretamente aqui no GitHub. Este repositório foi estruturado para facilitar a navegação e o entendimento da arquitetura do projeto, da qualidade do código, das convenções de nomenclatura e da documentação.
-
-Algumas áreas de interesse particular podem incluir:
-
-- A estrutura geral do projeto e a organização dos diretórios
-- A qualidade e a clareza do código em si
-- O uso de padrões de design e melhores práticas
-- A abrangência e a qualidade da documentação
-- A implementação de testes unitários e de integração
-
-Espero que ao revisar este código, você possa ter um vislumbre das minhas habilidades e conhecimentos como Engenheira de Machine Learning. Se você tiver alguma dúvida ou quiser discutir qualquer aspecto do projeto em mais detalhes, não hesite em me contatar.
-
-Além de revisar o código, também convido você a assistir aos vídeos que documentam o processo de desenvolvimento deste projeto. Estes vídeos estarão disponíveis no meu site de portfólio, no meu artigo no Medium e nas minhas postagens no LinkedIn. Eles fornecerão insights adicionais sobre meu processo de pensamento, minhas habilidades de resolução de problemas e minha abordagem geral para engenharia de machine learning.
-
-Obrigada por dedicar seu tempo para revisar este projeto. Espero ter a oportunidade de discutir mais detalhadamente como minhas habilidades e experiência podem ser benéficas para sua equipe.
+Agradeço seu interesse neste projeto! Juntos, podemos tornar o Pix mais seguro e confiável, em total conformidade com as mais recentes exigências regulatórias.

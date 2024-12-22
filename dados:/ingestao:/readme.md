@@ -43,13 +43,7 @@ Como engenheira de machine learning, acredito firmemente que a base de qualquer 
 4. **Flexibilidade**: O sistema pode acomodar facilmente novas fontes de dados ou alterações nos formatos de dados? É modular e extensível?
 
 Mais do que apenas um exercício técnico, acredito que este módulo de ingestão de dados demonstra minha capacidade de projetar e implementar sistemas de dados de missão crítica que podem suportar as demandas de negócios do mundo real. Estou ansiosa para aprofundar os detalhes técnicos e discutir como essa abordagem pode ser adaptada a diferentes cenários.
-## Recursos Adicionais
-Para uma visão mais aprofundada da nossa arquitetura de ingestão de dados e das decisões por trás dela, consulte os seguintes recursos:
 
-- [Kafka Ingest Design Doc](kafka/design_doc.md)
-- [Spark Ingest Design Doc](spark/design_doc.md)
-- [Real-time Ingest Benchmarks](benchmarks/real_time_ingest.md)
-- [Data Integrity Validation Suite](data_integrity/validation_suite.md)
 ## Contato
 Se você tiver alguma dúvida ou quiser discutir a arquitetura de ingestão de dados em mais detalhes, sinta-se à vontade para entrar em contato:
 

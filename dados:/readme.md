@@ -1,8 +1,19 @@
 # Pipeline de Dados - Detector de Fraudes Pix
+
 ## Visão Geral
 Este diretório contém todo o pipeline de processamento de dados que desenvolvi para o sistema de detecção de fraudes em tempo real para transações Pix. O pipeline foi projetado para lidar com o imenso volume e velocidade de dados gerados pelas transações Pix, garantindo que as análises de fraude possam ser realizadas com a menor latência possível.
 
-Entendi, não consegui acessar o arquivo `kafka_ingest.py` porque ele não existe neste ambiente. Vou prosseguir com a criação do README sem mostrar trechos de código então.
+## Menu de Navegação
+- [Ingestão de Dados](ingestao/README.md)
+  - [Ingestão com Kafka](ingestao/kafka/README.md)
+  - [Ingestão com Spark](ingestao/spark/README.md)
+- [Processamento de Dados](processamento/README.md)  
+  - [Processamento com PySpark e Databricks](processamento/pyspark/databricks/README.md)
+  - [Processamento com Spark Structured Streaming](processamento/spark/structured_streaming/README.md)
+- [Armazenamento de Dados](armazenamento/README.md)
+  - [Camada Bronze](armazenamento/bronze/README.md)
+  - [Camada Silver](armazenamento/silver/README.md)
+  - [Camada Gold](armazenamento/gold/README.md)
 
 ## Importância do Pipeline de Dados
 Em um sistema de detecção de fraudes em tempo real, a eficiência e robustez do pipeline de dados são absolutamente críticas. Cada segundo de latência pode significar a diferença entre bloquear uma transação fraudulenta ou permitir que ela ocorra. Portanto, cada componente deste pipeline foi cuidadosamente arquitetado para garantir:
@@ -37,33 +48,6 @@ Para armazenar dados processados, estou usando o Delta Lake devido a:
 - Manipulação eficiente de grandes volumes de dados
 - Integração perfeita com o Spark para acesso rápido aos dados
 
-## Estrutura do Diretório
-```
-dados/
-├── 
-ingestao/ # Componentes de ingestão de dados
-│   ├── 
-kafka/ # Configuração e código para ingestão com Kafka  
-│   └── 
-spark/ # Configuração e código para ingestão com Spark
-├── 
-processamento/ # Componentes de processamento de dados
-│   ├── 
-pyspark/ # Processamento com PySpark e Databricks
-│   └── 
-spark/ # Processamento com Spark Structured Streaming
-└── 
-armazenamento/ # Armazenamento de dados processados
-     ├── 
-bronze/ # Camada de dados brutos
-     ├── 
-silver/ # Camada de dados refinados
-     └── 
-gold/ # Camada de dados prontos para consumo
-```
-
-Cada subdiretório contém código, scripts e configurações relacionados à sua função específica no pipeline.
-
 ## Para Recrutadores e Revisores de Código
 Ao revisar este pipeline de dados, convido você a considerar:
 
@@ -77,25 +61,23 @@ Ao revisar este pipeline de dados, convido você a considerar:
 - As melhores práticas foram seguidas?
 
 ### 3. Tratamento de Erros e Resiliência
-- O pipeline lida graciosamente com picos de dados e falhas parciais?
+- O pipeline lida graciosamente com picos de dados e falhas parciais?  
 - Existem mecanismos adequados para tratamento de erros e reinicializações?
 
-### 4. Eficiência e Performance
+### 4. Eficiência e Performance  
 - O pipeline é otimizado para latência e taxa de transferência?
 - Os recursos computacionais são usados ​​de forma eficiente?
 
 ### 5. Flexibilidade e Extensibilidade
-- O pipeline pode acomodar facilmente novos tipos e fontes de dados?
+- O pipeline pode acomodar facilmente novos tipos e fontes de dados?  
 - Os componentes são fracamente acoplados e podem ser modificados independentemente?
 
 Estou ansiosa para discutir essas e outras considerações em mais detalhes. O design e a implementação deste pipeline foram um esforço significativo, e acredito que ele demonstra não apenas minhas habilidades técnicas, mas também minha capacidade de arquitetar sistemas robustos e eficientes para lidar com desafios do mundo real.
 
-
-
 ## Contato
 Se você tiver alguma dúvida ou quiser discutir este pipeline de dados em mais detalhes, sinta-se à vontade para entrar em contato:
 
-- Email: lugonc.lga@gmail.com  
-- LinkedIn: [Meu Perfil](https://www.linkedin.com/in/luanagoncalves05/)
+- Email: lugonc.lga@gmail.com
+- LinkedIn: [Meu Perfil](https://www.linkedin.com/in/luanagoncalves05/) 
 
 Estou sempre feliz em aprofundar os detalhes técnicos e o raciocínio por trás da minha abordagem. Obrigado pelo seu tempo e consideração!

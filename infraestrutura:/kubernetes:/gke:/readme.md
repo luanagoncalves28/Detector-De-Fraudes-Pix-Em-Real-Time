@@ -111,4 +111,4 @@ Espero que esta visão geral e pontos de revisão demonstrem tanto meu conhecime
 ## Contato
 Para qualquer dúvida ou discussão adicional sobre as configurações do GKE:
 - Email: lugonc.lga@gmail.com
-- LinkedIn: [(https://www.linkedin.com/in/luanagoncalves05/)]
+- LinkedIn: [Meu Perfil](https://www.linkedin.com/in/luanagoncalves05/)

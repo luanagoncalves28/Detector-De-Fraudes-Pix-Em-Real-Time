@@ -68,8 +68,6 @@ Ao revisar esses notebooks, sugiro prestar atenção nos seguintes aspectos:
 
 5. **Potencial de Produtização**: Os conceitos e técnicas que eu protótipo nos notebooks podem ser efetivamente transferidos para um ambiente de produção? Há um caminho claro de notebook para pipeline?
 
-Estou incrivelmente orgulhosa do trabalho representado nesses notebooks, e adoraria aprofundar as decisões técnicas e insights de negócios por trás deles. Acredito que eles demonstram não apenas minhas habilidades técnicas, mas também minha capacidade de pensar criticamente, aprender rapidamente e inovar soluções para problemas complexos do mundo real.
-
 ## Contato
 
 Se você tiver alguma dúvida ou feedback, ou se quiser agendar uma conversa para mergulhar mais fundo nestes notebooks, não hesite em entrar em contato:

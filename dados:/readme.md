@@ -88,7 +88,7 @@ Ao revisar este pipeline de dados, convido você a considerar:
 - O pipeline pode acomodar facilmente novos tipos e fontes de dados?
 - Os componentes são fracamente acoplados e podem ser modificados independentemente?
 
-Estou ansioso para discutir essas e outras considerações em mais detalhes. O design e a implementação deste pipeline foram um esforço significativo, e acredito que ele demonstra não apenas minhas habilidades técnicas, mas também minha capacidade de arquitetar sistemas robustos e eficientes para lidar com desafios do mundo real.
+Estou ansiosa para discutir essas e outras considerações em mais detalhes. O design e a implementação deste pipeline foram um esforço significativo, e acredito que ele demonstra não apenas minhas habilidades técnicas, mas também minha capacidade de arquitetar sistemas robustos e eficientes para lidar com desafios do mundo real.
 
 
 

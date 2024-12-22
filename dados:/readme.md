@@ -96,6 +96,6 @@ Estou ansioso para discutir essas e outras considerações em mais detalhes. O d
 Se você tiver alguma dúvida ou quiser discutir este pipeline de dados em mais detalhes, sinta-se à vontade para entrar em contato:
 
 - Email: lugonc.lga@gmail.com  
-- LinkedIn: [Seu perfil no LinkedIn]
+- LinkedIn: [Meu Perfil](https://www.linkedin.com/in/luanagoncalves05/)
 
 Estou sempre feliz em aprofundar os detalhes técnicos e o raciocínio por trás da minha abordagem. Obrigado pelo seu tempo e consideração!

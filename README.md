@@ -73,7 +73,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 Para dúvidas, sugestões ou oportunidades:
 
 - Email: lugonc.lga@gmail.com
-- LinkedIn: [Seu Perfil do LinkedIn](link-para-seu-linkedin)
+- LinkedIn: [Meu Perfil](https://www.linkedin.com/in/luanagoncalves05/)
 - Website: [Seu Website](link-para-seu-website)
 
 Agradeço seu interesse neste projeto! Juntos, podemos tornar o Pix mais seguro e confiável, em total conformidade com as mais recentes exigências regulatórias.

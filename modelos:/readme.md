@@ -44,8 +44,6 @@ Ao revisar o código e os artefatos neste diretório, eu sugiro considerar o seg
 4. Os pipelines de treinamento e implantação do modelo são robustos, eficientes e escaláveis?
 5. As considerações de monitoramento e manutenção do modelo são levadas em conta?
 
-Estou ansiosa para discutir mais a fundo as decisões técnicas por trás do meu trabalho e como minha experiência em engenharia de machine learning pode beneficiar sua organização. Como uma profissional apaixonada e orientada a soluções, estou sempre buscando maneiras de otimizar e aprimorar meus projetos para entregar o máximo valor de negócios.
-
 ## Contato
 
 Se você tiver alguma dúvida ou feedback, ou se quiser agendar uma conversa para mergulhar mais fundo nesta arquitetura de aprendizado de máquina, não hesite em entrar em contato:

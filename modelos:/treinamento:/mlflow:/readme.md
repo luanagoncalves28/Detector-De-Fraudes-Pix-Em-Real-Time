@@ -1,5 +1,3 @@
-Você está certa, devemos manter a consistência na narrativa na primeira pessoa como uma engenheira de machine learning. Aqui está o README.md para o subdiretório mlflow:
-
 # Gerenciamento do Ciclo de Vida do Modelo com MLflow
 
 ## Visão Geral

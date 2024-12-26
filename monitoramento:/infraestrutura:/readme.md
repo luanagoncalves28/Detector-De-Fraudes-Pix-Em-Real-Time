@@ -1,12 +1,12 @@
-## Monitoramento de Infraestrutura
+# Monitoramento de Infraestrutura
 
-### Visão Geral
+## Visão Geral
 
 Bem-vindo ao centro de controle para o monitoramento da infraestrutura do meu pipeline de detecção de fraudes Pix! Este subdiretório contém todas as configurações e automações que desenvolvi para monitorar continuamente a saúde e o desempenho dos componentes de infraestrutura que sustentam minha solução.
 
 Como engenheira de machine learning, entendo que a infraestrutura é a espinha dorsal de qualquer sistema de produção. Não importa quão sofisticados sejam meus modelos, eles só podem agregar valor de negócio se a infraestrutura subjacente for robusta, escalável e altamente disponível. É por isso que coloco grande ênfase no monitoramento proativo da infraestrutura.
 
-### O que Estou Monitorando
+## O que Estou Monitorando
 
 Meu sistema de monitoramento de infraestrutura abrange todos os principais componentes do meu pipeline, incluindo:
 
@@ -20,7 +20,7 @@ Meu sistema de monitoramento de infraestrutura abrange todos os principais compo
 
 5. **Gateways de API**: Monitoro as taxas de solicitação, latências e códigos de status HTTP nos meus gateways de API para rapidamente detectar interrupções ou degradação da performance.
 
-### Como Eu Monitoro
+## Como Eu Monitoro
 
 Para habilitar esse monitoramento de infraestrutura abrangente, aproveitei uma pilha de ferramentas de código aberto líder da indústria:
 
@@ -32,7 +32,7 @@ Para habilitar esse monitoramento de infraestrutura abrangente, aproveitei uma p
 
 4. **Loki**: Para agregação e consulta de logs, uso Loki. Ele integra-se perfeitamente com o Grafana, permitindo que eu correlacione spikes em métricas com entradas de log relevantes para depuração mais rápida.
 
-### Como Usar Este Diretório
+## Como Usar Este Diretório
 
 Aqui está um rápido tour do que você encontrará neste diretório:
 
@@ -46,7 +46,7 @@ Aqui está um rápido tour do que você encontrará neste diretório:
 
 - `scripts`: Contém vários scripts de automação para implantar e gerenciar a pilha de monitoramento.
 
-### Para Recrutadores e Revisores
+## Para Recrutadores e Revisores
 
 Como a única engenheira de machine learning trabalhando neste projeto, a responsabilidade de garantir a confiabilidade e a performance da infraestrutura caiu sobre mim. Isso exigiu que eu me aprofundasse em DevOps e SRE princípios e práticas.
 
@@ -64,7 +64,7 @@ Ao revisar as configurações e automações neste diretório, sugiro considerar
 
 Estou extremamente orgulhosa do sistema de monitoramento abrangente e eficiente que projetei e implantei. Acredito que ele demonstra não apenas minhas habilidades técnicas, mas também meu compromisso inabalável em garantir a confiabilidade e o desempenho dos sistemas que construo.
 
-### Contato
+## Contato
 
 Se você tiver alguma dúvida ou feedback, ou se quiser agendar uma conversa para mergulhar mais fundo nesta arquitetura de monitoramento, não hesite em entrar em contato:
 

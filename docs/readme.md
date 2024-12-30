@@ -4,18 +4,14 @@ Bem-vindo à documentação do projeto "Detecção de Fraudes em Tempo Real em T
 
 ## Índice
 
-- [Arquitetura](arquitetura.md)
-  - Visão geral da arquitetura do sistema, incluindo componentes, fluxo de dados e tecnologias utilizadas.
-- [Padrões de Projeto](padroes_projeto.md)
-  - Explicação dos padrões de projeto de software aplicados neste projeto e seus benefícios.
+- [Problema de Negócio](problema_de_negócio.md)
+  - Explicação do complexo e multifacetado problema de negócio de adaptação das instituições financeiras às novas exigências regulatórias do Pix.
+- [análise_compliance_e_jurídica](análise_compliance_e_jurídica.md)
+  - análise detalhada, do ponto de vista de Compliance e Jurídico, das novas normativas introduzidas pela Resolução BCB nº 403 de 22/07/2024, que estabelece requisitos mais específicos para o gerenciamento de risco de fraude no Pix
 - [Ciclo de Vida MLOps](mlops_ciclo_vida.md)
   - Descrição detalhada das práticas de MLOps seguidas neste projeto, desde a aquisição de dados até o monitoramento do modelo.
-- [Ciclo de Vida DevOps](devops_ciclo_vida.md)
-  - Visão geral das práticas de DevOps implementadas, incluindo CI/CD, infraestrutura como código e containerização.
-- [Guia de Início Rápido](guia_inicio_rapido.md)
-  - Instruções passo a passo para configurar e executar o projeto localmente.
-- [Executando Testes](executando_testes.md)
-  - Guia sobre como executar a suíte de testes e interpretar os resultados.
+- [Arquitetura](arquitetura.md)
+  - sistema escalável e em tempo quase real para identificar transações suspeitas no ecossistema Pix, em conformidade com a Resolução BCB n° 403/2024.
 
 ## Navegando pela Documentação
 

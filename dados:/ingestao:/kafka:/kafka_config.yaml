@@ -1,1 +1,11 @@
-
+kafka:
+  bootstrap_servers:
+    - localhost:9092
+  topic: transactions
+  output_topic: processed_transactions
+  group_id: fraud-detection-group
+  auto_offset_reset: earliest
+  enable_auto_commit: false
+  max_poll_records: 500
+  session_timeout_ms: 60000
+  heartbeat_interval_ms: 3000

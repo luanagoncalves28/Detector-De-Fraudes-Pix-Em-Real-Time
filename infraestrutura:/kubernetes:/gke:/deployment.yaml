@@ -1,1 +1,47 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fraud-detection-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fraud-detection
+  template:
+    metadata:
+      labels:
+        app: fraud-detection
+    spec:
+      containers:
+      - name: fraud-detection-container
+        image: gcr.io/PROJECT_ID/fraud-detection:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: KAFKA_BROKER
+          value: kafka-service:9092  
+        - name: KAFKA_TOPIC
+          value: transactions
+        - name: DB_HOST
+          value: postgres-service  
+        - name: DB_PORT
+          value: "5432"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 512Mi
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 10

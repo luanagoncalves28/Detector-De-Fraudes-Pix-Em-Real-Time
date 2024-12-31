@@ -1,36 +1,72 @@
-resource "google_compute_network" "vpc_network" {
-  name                    = var.network_name
-  auto_create_subnetworks = false
-  project                 = var.project_id
-}
-
-resource "google_compute_subnetwork" "vpc_subnetwork" {
-  count         = length(var.subnets)
-  name          = var.subnets[count.index].subnet_name
-  ip_cidr_range = var.subnets[count.index].subnet_ip
-  region        = var.subnets[count.index].subnet_region
-  network       = google_compute_network.vpc_network.id
-  project       = var.project_id
-}
-
-resource "google_compute_firewall" "allow_internal" {
-  name    = "allow-internal"
-  network = google_compute_network.vpc_network.name
+# Definir o provedor Google Cloud
+provider "google" {
   project = var.project_id
+  region  = var.region
+}
 
-  allow {
-    protocol = "icmp"
+# Criar um cluster GKE
+resource "google_container_cluster" "primary" {
+  name     = "fraud-detection-cluster"
+  location = var.region
+  
+  # Configuração para alta disponibilidade
+  node_config {
+    machine_type = "n1-standard-4"
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/compute",
+      "https://www.googleapis.com/auth/devstorage.read_only",
+      "https://www.googleapis.com/auth/logging.write",
+      "https://www.googleapis.com/auth/monitoring",
+    ]
+  }
+  initial_node_count = 3
+  enable_autopilot   = false
+
+  release_channel {
+    channel = "REGULAR"
+  }
+  
+  # Configurações de segurança
+  private_cluster_config {
+    enable_private_nodes    = true
+    enable_private_endpoint = false
+    master_ipv4_cidr_block  = "172.16.0.0/28"
   }
 
-  allow {
-    protocol = "tcp"
-    ports    = ["0-65535"]
+  # Políticas de segurança do pod
+  pod_security_policy_config {
+    enabled = true
   }
+}
 
-  allow {
-    protocol = "udp"
-    ports    = ["0-65535"]
+# Criar uma VPC para o cluster
+resource "google_compute_network" "vpc" {
+  name                    = "fraud-detection-vpc"
+  auto_create_subnetworks = false
+}
+
+# Criar uma sub-rede privada para o cluster 
+resource "google_compute_subnetwork" "private" {
+  name          = "private-subnet"
+  ip_cidr_range = "10.0.0.0/20" 
+  network       = google_compute_network.vpc.id
+
+  # Habilita logs de fluxo para auditoria
+  log_config {
+    aggregation_interval = "INTERVAL_5_SEC"
+    flow_sampling        = 0.5
+    metadata             = "INCLUDE_ALL_METADATA"
   }
+}
 
-  source_ranges = [for subnet in var.subnets : subnet.subnet_ip]
+# Configurar autoscaling para o cluster
+resource "google_container_node_pool" "primary_nodes" {
+  name       = "fraud-detection-node-pool"
+  cluster    = google_container_cluster.primary.id
+  node_count = 1
+
+  autoscaling {
+    min_node_count = 1
+    max_node_count = 5
+  }
 }

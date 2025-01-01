@@ -1,1 +1,20 @@
+bootstrap_servers: 
+  - "localhost:9092"
+topic: "transactions"
+starting_offsets: "earliest"
 
+spark:
+  app_name: "FraudDetectionIngestion"
+  master: "local[*]"
+  
+streaming:
+  checkpoint_location: "hdfs://localhost:9000/checkpoint"
+  trigger_processing_time: "30 seconds"
+  max_rate_per_trigger: 1000
+  stop_gracefully: True
+  
+output:
+  mode: "append"
+  format: "parquet"
+  path: "hdfs://localhost:9000/output"
+  checkpoint_location: "hdfs://localhost:9000/output_checkpoint"

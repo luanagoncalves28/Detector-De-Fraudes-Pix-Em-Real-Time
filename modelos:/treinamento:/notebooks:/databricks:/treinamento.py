@@ -1,57 +1,68 @@
-```python
+# Notebook Databricks para Treinamento de Modelos de Detecção de Fraudes Pix
+
 # Importar bibliotecas necessárias
-import numpy as np
-import pandas as pd
+import pyspark
 from pyspark.sql import SparkSession
 from pyspark.ml import Pipeline
-from pyspark.ml.feature import VectorAssembler, StandardScaler
+from pyspark.ml.feature import VectorAssembler, StringIndexer
 from pyspark.ml.classification import RandomForestClassifier
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
-import mlflow
 
-# Carregar configurações
-with open('treinamento_config.yaml', 'r') as file:
-    config = yaml.safe_load(file)
-    
-# Configurar sessão Spark
+# Criar Sessão Spark 
 spark = SparkSession.builder \
-    .appName("FraudDetectionTraining") \
+    .appName("Training Fraud Detection Models") \
     .getOrCreate()
 
-# Carregar dados de treino
+# Ler dados de treinamento do Delta Lake
 train_data = spark.read \
     .format("delta") \
-    .load(config['data']['train_path'])
-    
-# Carregar dados de teste  
-test_data = spark.read \
-    .format("delta") \
-    .load(config['data']['test_path'])
+    .load("/delta/pix_transactions_silver")
 
-# Definir features e label
-features = config['model']['features']
-label = config['model']['label']
+# Dividir em conjuntos de treinamento e validação 
+(train, validation) = train_data.randomSplit([0.8, 0.2], seed=42)
 
-# Criar pipeline de pré-processamento
+# Definir features e target
+features = ["transaction_amount", "transaction_time", "payer_id", "payee_id", ...]  
+target = "is_fraud"
+
+# Criar pipeline de transformação de feature 
 assembler = VectorAssembler(inputCols=features, outputCol="features")
-scaler = StandardScaler(inputCol="features", outputCol="scaledFeatures")
-preprocessor = Pipeline(stages=[assembler, scaler])
 
-# Treinar modelo de floresta aleatória
-rf = RandomForestClassifier(labelCol=label, featuresCol="scaledFeatures", numTrees=100)
-pipeline = Pipeline(stages=[preprocessor, rf])
-model = pipeline.fit(train_data)
+# Indexar coluna target
+indexer = StringIndexer(inputCol=target, outputCol="label")
 
-# Avaliar o modelo
-predictions = model.transform(test_data)
-evaluator = BinaryClassificationEvaluator(labelCol=label)
+# Definir modelo Random Forest
+rf = RandomForestClassifier(labelCol="label", featuresCol="features", numTrees=100)
+
+# Montar pipeline
+pipeline = Pipeline(stages=[assembler, indexer, rf])
+
+# Treinar modelo
+model = pipeline.fit(train)
+
+# Fazer predições no conjunto de validação
+predictions = model.transform(validation)
+
+# Avaliar performance do modelo
+evaluator = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="prediction", metricName="areaUnderROC")
 auc = evaluator.evaluate(predictions)
-print(f'Test AUC: {auc:.3f}')
+print(f"Area Under ROC: {auc:.4f}")
 
-# Registrar modelo e métricas no MLflow
-with mlflow.start_run(run_name=config['experiment']['name']):
-    mlflow.log_param("num_trees", 100)
-    mlflow.log_metric("test_auc", auc)  
-    mlflow.spark.log_model(model, "model")
-    mlflow.set_tags(config['experiment']['tags'])
-```
+# Registrar modelo no MLflow Model Registry
+from mlflow.tracking import MlflowClient
+
+client = MlflowClient()
+run = client.create_run(experiment_id="1")
+client.log_artifact(run.info.run_id, "model")
+model_version = mlflow.register_model(f"runs:/{run.info.run_id}/model", "FraudDetectionModel")
+
+# Transicionar modelo para stage "Staging"
+client.transition_model_version_stage(model_version, stage="Staging")
+
+# Exibir métricas e parâmetros do modelo registrado
+print(f"Model Name: {model_version.name}")
+print(f"Model Version: {model_version.version}")
+print(f"AUC: {auc:.4f}")
+
+# Salvar notebook no DBFS
+dbutils.notebook.exit("success")

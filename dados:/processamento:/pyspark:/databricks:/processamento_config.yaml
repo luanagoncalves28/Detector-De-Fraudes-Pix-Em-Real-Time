@@ -1,1 +1,29 @@
-
+kafka:
+  source: 
+    bootstrap_servers: 
+      - "localhost:9092"
+      - "localhost:9093"
+      - "localhost:9094"
+    topic: "transactions"
+    
+  target:
+    bootstrap_servers: 
+      - "localhost:9092"
+      - "localhost:9093"
+      - "localhost:9094"  
+    topic: "transactions_aggregated"
+    
+db:
+  target:
+    url: "jdbc:postgresql://localhost:5432/frauddetection"
+    table: "aggregated_transactions"
+    
+spark:
+  app_name: "FraudDetectionProcessing"
+  master: "local[*]"
+  
+processing:
+  window_duration: "5 minutes"
+  watermark: "10 minutes"
+  output_mode: "append"
+  checkpoint_location: "/path/to/checkpoint"

@@ -1,1 +1,13 @@
+kafka:
+  bootstrap_servers: 
+    - "localhost:9092"
+  topic: "transactions"
+  starting_offsets: "earliest"
+  output_topic: "transactions_aggregated"
 
+processing:
+  window_duration: "5 minutes"  
+  watermark: "10 minutes"
+  trigger_interval: "1 minute"
+  checkpoint_location: "path/to/checkpoint/directory"
+  output_mode: "update"

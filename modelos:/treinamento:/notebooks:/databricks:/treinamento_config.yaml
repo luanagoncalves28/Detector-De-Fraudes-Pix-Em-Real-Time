@@ -1,1 +1,33 @@
+# Configurações para o notebook de treinamento de modelos
 
+# Caminho para os dados de treinamento no Delta Lake
+train_data_path: "/delta/pix_transactions_silver"
+
+# Fração de dados a serem usados para validação
+validation_fraction: 0.2
+
+# Coluna target 
+target_column: "is_fraud"
+
+# Colunas de features
+feature_columns:
+  - "transaction_amount" 
+  - "transaction_time"
+  - "payer_id"
+  - "payee_id"
+  # adicionar outras colunas de features aqui
+
+# Parâmetros do modelo Random Forest
+random_forest_params:
+  num_trees: 100
+  max_depth: 5
+  seed: 42
+
+# ID do experimento no MLflow
+experiment_id: "1"
+
+# Nome do modelo no Model Registry
+model_name: "FraudDetectionModel"
+
+# Stage para o qual promover o modelo após o treinamento 
+model_stage: "Staging"

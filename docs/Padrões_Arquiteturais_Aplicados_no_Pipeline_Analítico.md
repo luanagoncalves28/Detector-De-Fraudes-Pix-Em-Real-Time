@@ -102,4 +102,4 @@ Finalmente, implementar técnicas avançadas de escalabilidade horizontal, como 
 
 Em suma, as habilidades e conhecimentos demonstrados na aplicação desses padrões arquiteturais me posicionam de forma exclusiva para projetar e implementar pipelines analíticos de ML no estado-da-arte que não apenas atendem, mas excedem os rigorosos requisitos de escalabilidade, resiliência e desempenho das iniciativas de ML corporativas mais avançadas.
 
-Estou animada com a oportunidade de trazer essa expertise para ajudar a impulsionar iniciativas de ML inovadoras e de alto impacto como engenheira de machine learning.
+Estou animada com a oportunidade de trazer essa expertise para ajudar a impulsionar iniciativas de ML inovadoras e de alto impacto como Engenheira de ML.

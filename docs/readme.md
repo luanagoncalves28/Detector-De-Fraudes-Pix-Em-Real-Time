@@ -10,7 +10,7 @@ Bem-vindo à documentação do projeto "Detecção de Fraudes em Tempo Real em T
   - Análise detalhada, do ponto de vista de Compliance e Jurídico, das novas normativas introduzidas pela Resolução BCB nº 403 de 22/07/2024, que estabelece requisitos mais específicos para o gerenciamento de risco de fraude no Pix
 - [Ciclo de Vida MLOps](mlops_ciclo_vida.md)
   - Descrição detalhada das práticas de MLOps seguidas neste projeto, desde a aquisição de dados até o monitoramento do modelo.
-- [Ciclo de Vida FinOps](ciclo-de-vida-FinOps.md)
+- [Ciclo de Vida FinOps](finops_ciclo_vida.md)
   - Aplicação abrangente dos princípios e práticas de FinOps ao longo do ciclo de vida do pipeline de ML, demonstrando habilidades em otimização de custos e geração de valor de negócio.
 - [Arquitetura](arquitetura.md)
   - Sistema escalável e em tempo quase real para identificar transações suspeitas no ecossistema Pix, em conformidade com a Resolução BCB n° 403/2024.
@@ -40,6 +40,6 @@ Se você tiver alguma dúvida ou quiser discutir qualquer aspecto do projeto em 
 
 ## Contato
 
-Para quaisquer perguntas, sugestões ou feedback relacionado a esta documentação, por favor, entre em contato comigo diretamente em lugonc.lga@gmail.com.
+Para quaisquer perguntas, sugestões ou feedback relacionado a esta documentação, por favor, abra uma issue no repositório do GitHub ou entre em contato comigo diretamente em lugonc.lga@gmail.com.
 
 Espero que esta documentação forneça uma visão clara e abrangente do projeto e demonstre meu compromisso em construir sistemas de aprendizado de máquina de alta qualidade, bem documentados e financeiramente eficientes. Aguardo seu feedback!

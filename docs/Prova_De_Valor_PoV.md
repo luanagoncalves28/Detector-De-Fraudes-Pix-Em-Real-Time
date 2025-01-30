@@ -33,13 +33,24 @@ As **fraudes de engenharia social** apresentam **desafios únicos**, pois os gol
 
 O projeto adota **Clean Architecture**, **event-driven processing** e **Infraestrutura como Código (IaC)** para garantir escalabilidade, modularidade e automação. Os principais componentes incluem:
 
-📌 **Ingestão e processamento de dados** (Kafka, Spark Streaming) para detecção em tempo real. 📌 **Pipelines MLOps** (MLflow, Databricks) para automação e governança de modelos de fraude. 📌 **IA Generativa** para análise contextual e explicabilidade de decisões. 📌 **Padrões de FinOps** para otimização de custos operacionais na nuvem. 📌 **API de integração bancária** compatível com Open Banking e padrões regulatórios. 📌 **Infraestrutura como Código (Terraform, CloudFormation)** para provisionamento automatizado. 📌 **Monitoramento e Observabilidade** (Prometheus, Grafana) para métricas, logs e alertas. 📌 **Segurança e Compliance** (IAM, Zero Trust, criptografia end-to-end) para garantir conformidade com normas regulatórias.
+📌 **Ingestão e processamento de dados** (Kafka, Spark Streaming) para detecção em tempo real. 
+📌 **Pipelines MLOps** (MLflow, Databricks) para automação e governança de modelos de fraude. 
+📌 **IA Generativa** para análise contextual e explicabilidade de decisões. 
+📌 **Padrões de FinOps** para otimização de custos operacionais na nuvem. 
+📌 **API de integração bancária** compatível com Open Banking e padrões regulatórios. 
+📌 **Infraestrutura como Código (Terraform, CloudFormation)** para provisionamento automatizado. 
+📌 **Monitoramento e Observabilidade** (Prometheus, Grafana) para métricas, logs e alertas. 
+📌 **Segurança e Compliance** (IAM, Zero Trust, criptografia end-to-end) para garantir conformidade com normas regulatórias.
 
 ### **3.2. Aplicação de Padrões de Design Patterns no Projeto**
 
 Para garantir robustez e reutilização, utilizamos **padrões de projeto (design patterns) aplicáveis a detecção de fraudes**:
 
-✅ **Factory Pattern** → Criação dinâmica de estratégias de detecção baseadas no tipo de fraude. ✅ **Observer Pattern** → Detecção de transações suspeitas baseada em eventos distribuídos. ✅ **Chain of Responsibility** → Múltiplas camadas de verificação de fraude. ✅ **Strategy Pattern** → Diferentes abordagens para cada tipo de fraude identificada. ✅ **CQRS (Command Query Responsibility Segregation)** → Separação entre leitura e escrita para otimizar o desempenho do sistema.
+✅ **Factory Pattern** → Criação dinâmica de estratégias de detecção baseadas no tipo de fraude. 
+✅ **Observer Pattern** → Detecção de transações suspeitas baseada em eventos distribuídos. 
+✅ **Chain of Responsibility** → Múltiplas camadas de verificação de fraude. 
+✅ **Strategy Pattern** → Diferentes abordagens para cada tipo de fraude identificada. 
+✅ **CQRS (Command Query Responsibility Segregation)** → Separação entre leitura e escrita para otimizar o desempenho do sistema.
 
 ---
 
@@ -60,7 +71,12 @@ Para garantir compatibilidade com sistemas bancários, o projeto utiliza **múlt
 
 Para garantir a integridade e eficiência da solução, o projeto adota práticas avançadas de **monitoramento, observabilidade e segurança**:
 
-📌 **Monitoramento em Tempo Real** (Prometheus, Grafana) para rastreamento contínuo de métricas operacionais. 📌 **Registro e Análise de Logs** (ELK Stack) para auditoria detalhada de eventos críticos. 📌 **Alertas Automatizados** via serviços de notificação e incident response (PagerDuty, OpsGenie). 📌 **Autenticação e Autorização Segura** (IAM, OAuth2, OpenID Connect) para controle de acesso. 📌 **Criptografia End-to-End** (TLS 1.3, AES-256) para proteção de dados sensíveis. 📌 **Estratégia Zero Trust** para minimizar riscos de acessos indevidos e ataques cibernéticos.
+📌 **Monitoramento em Tempo Real** (Prometheus, Grafana) para rastreamento contínuo de métricas operacionais. 
+📌 **Registro e Análise de Logs** (ELK Stack) para auditoria detalhada de eventos críticos. 
+📌 **Alertas Automatizados** via serviços de notificação e incident response (PagerDuty, OpsGenie). 
+📌 **Autenticação e Autorização Segura** (IAM, OAuth2, OpenID Connect) para controle de acesso. 
+📌 **Criptografia End-to-End** (TLS 1.3, AES-256) para proteção de dados sensíveis. 
+📌 **Estratégia Zero Trust** para minimizar riscos de acessos indevidos e ataques cibernéticos.
 
 ---
 
@@ -68,7 +84,11 @@ Para garantir a integridade e eficiência da solução, o projeto adota prática
 
 A solução foi testada com **dados fictícios estruturados conforme padrões do setor bancário**. O impacto da solução foi medido através de:
 
-✅ **Testes A/B** comparando a solução com modelos tradicionais. ✅ **Análise de Redução de Falsos Positivos**. ✅ **Benchmark de Tempo de Resposta**. ✅ **Explicabilidade e Transparência dos Relatórios Gerados**. ✅ **Testes de Segurança** (Pentesting, Análise de Vulnerabilidades) para garantir conformidade com padrões de segurança.
+✅ **Testes A/B** comparando a solução com modelos tradicionais. 
+✅ **Análise de Redução de Falsos Positivos**. 
+✅ **Benchmark de Tempo de Resposta**. 
+✅ **Explicabilidade e Transparência dos Relatórios Gerados**. 
+✅ **Testes de Segurança** (Pentesting, Análise de Vulnerabilidades) para garantir conformidade com padrões de segurança.
 
 Os resultados mostram **um aumento de 40% na eficácia da detecção de fraudes** e **uma redução de 35% nos falsos positivos** em comparação com abordagens tradicionais.
 
@@ -78,4 +98,8 @@ Os resultados mostram **um aumento de 40% na eficácia da detecção de fraudes*
 
 📢 **A solução proposta adota padrões técnicos modernos e está alinhada com as melhores práticas do setor financeiro**. Combinando **IA Generativa, MLOps, observabilidade e segurança de alto nível**, a solução entrega **transparência, conformidade e eficiência** para a detecção de fraudes no Pix.
 
-🚀 **Principais diferenciais:** ✔️ **Arquitetura escalável e modular** baseada em eventos. ✔️ **Monitoramento contínuo para detecção de fraudes em tempo real.** ✔️ **Segurança robusta e conformidade regulatória garantida.** ✔️ **Capacidade de integração e automação via Infraestrutura como Código.**
+🚀 **Principais diferenciais:** 
+✔️ **Arquitetura escalável e modular** baseada em eventos. 
+✔️ **Monitoramento contínuo para detecção de fraudes em tempo real.** 
+✔️ **Segurança robusta e conformidade regulatória garantida.** 
+✔️ **Capacidade de integração e automação via Infraestrutura como Código.**
